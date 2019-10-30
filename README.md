@@ -54,6 +54,6 @@ Output
 INSERT INTO docs VALUES(4, '<HTML>Los Angeles is a city in California.</HTML>');
 INSERT INTO docs VALUES(5, '<HTML>Mexico City is big.</HTML>');
 ```
-```plsql
+```sql
 EXEC CTX_DDL.SYNC_INDEX('idx_docs', '2M');
 ```
