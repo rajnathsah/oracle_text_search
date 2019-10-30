@@ -58,3 +58,5 @@ Without synchronizing index, query will not reflect the updated data.
 ```sql
 EXEC CTX_DDL.SYNC_INDEX('idx_docs', '2M');
 ```
+
+For more detail, please refer [Oracle Text](https://docs.oracle.com/en/database/oracle/oracle-database/18/ccapp/understanding-oracle-text-application-development.html#GUID-425F55BD-4AE3-4CCE-9FE4-3B94A4AF599E) documentation.
