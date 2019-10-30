@@ -2,7 +2,7 @@
 
 Oracle Text provides indexing, word and theme searching, and viewing capabilities for text in query applications and document classification applications.
 
-## Getting started with Oracle text search setup
+### Getting started with Oracle text search setup
 
 1. Create a user with CTXAPP role or assign CTXAPP role to existing user.
 SQL statement to create user.
@@ -25,4 +25,19 @@ GRANT EXECUTE ON CTXSYS.CTX_THES TO textsearchuser;
 GRANT EXECUTE ON CTXSYS.CTX_ULEXER TO textsearchuser;
 ```
 
-Let us start with example of Oracle text.
+### Let us start with example of Oracle text
+
+1. Create table for the example.
+```sql
+CREATE TABLE docs (id NUMBER PRIMARY KEY, text VARCHAR2(200));
+```
+2. Load data in table
+```sql
+INSERT INTO docs VALUES(1, '<HTML>California is a state in the US.</HTML>');
+INSERT INTO docs VALUES(2, '<HTML>Paris is a city in France.</HTML>');
+INSERT INTO docs VALUES(3, '<HTML>France is in Europe.</HTML>');
+```
+3. Run search query
+```sql
+SELECT SCORE(1), id, text FROM docs WHERE CONTAINS(text, 'France', 1) > 0;
+```
