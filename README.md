@@ -47,3 +47,4 @@ CREATE INDEX idx_docs ON docs(text)
 ```sql
 SELECT SCORE(1), id, text FROM docs WHERE CONTAINS(text, 'France', 1) > 0;
 ```
+![Query output](https://github.com/rajnathsah/oracle_text_search/blob/master/images/run1.png)
