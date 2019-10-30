@@ -37,6 +37,12 @@ INSERT INTO docs VALUES(1, '<HTML>California is a state in the US.</HTML>');
 INSERT INTO docs VALUES(2, '<HTML>Paris is a city in France.</HTML>');
 INSERT INTO docs VALUES(3, '<HTML>France is in Europe.</HTML>');
 ```
+3. Create index on column to used for searching data.
+```sql
+CREATE INDEX idx_docs ON docs(text)
+     INDEXTYPE IS CTXSYS.CONTEXT PARAMETERS
+     ('FILTER CTXSYS.NULL_FILTER SECTION GROUP CTXSYS.HTML_SECTION_GROUP');
+```
 3. Run search query
 ```sql
 SELECT SCORE(1), id, text FROM docs WHERE CONTAINS(text, 'France', 1) > 0;
