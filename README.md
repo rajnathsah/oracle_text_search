@@ -49,3 +49,11 @@ SELECT SCORE(1), id, text FROM docs WHERE CONTAINS(text, 'France', 1) > 0;
 ```
 Output  
 ![Query output](https://github.com/rajnathsah/oracle_text_search/blob/master/images/run1.png)
+4. Synchronize the index after data manipulation
+```sql
+INSERT INTO docs VALUES(4, '<HTML>Los Angeles is a city in California.</HTML>');
+INSERT INTO docs VALUES(5, '<HTML>Mexico City is big.</HTML>');
+```
+```plsql
+EXEC CTX_DDL.SYNC_INDEX('idx_docs', '2M');
+```
